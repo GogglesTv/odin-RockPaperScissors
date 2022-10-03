@@ -1,40 +1,52 @@
 "use strict";
 
 const choices = ["rock", "paper", "scissors"];
-const userPick = prompt(
-  "Choose your weapon: Rock, Paper, or Scissors."
-).toLowerCase();
+let userScore = 0;
+let cpuScore = 0;
+let draws = 0;
 
 const getComputerChoice = function (arr) {
-  const cpuChoice = Math.floor(Math.random() * arr.length);
-  const choice = arr[cpuChoice];
-
-  console.log(`CPU: ${choice}`);
-  return choice;
+  const cpuPicks = Math.floor(Math.random() * arr.length);
+  const cpuChoice = arr[cpuPicks];
+  return cpuChoice;
 };
-const cpu = getComputerChoice(choices);
+let cpu = getComputerChoice(choices);
 
-const getPlayerChoice = function () {
-  //const userName = prompt("What's your name User?");
-  console.log(`User: ${userPick}`);
-  // console.log(`${userName}: ${userPick}`);
-  return userPick;
-};
-const user = getPlayerChoice();
+//Specifies round win/game win messages
+let playerWinRound = "Player wins this round!";
+let computerWinRound = "Computer wins this round!";
+let draw = "Draw!";
+let playerWin = "Player wins the game! Congratulations!";
+let computerWin = "Computer wins the game! Congratulations!";
 
-const playRound = function (playerSelection, computerSelection) {
-  const userWin = `you won!`;
-
-  if (playerSelection === "rock" && computerSelection === "scissors") {
-    alert(userWin);
-  } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    alert(userWin);
-  } else if (playerSelection === "paper" && computerSelection === "rock") {
-    alert(userWin);
-  } else if (playerSelection === computerSelection) {
-    alert("It's a tie! Go again!");
+const playRound = function (userPick, computerSelection) {
+  if (userPick === "rock" && computerSelection === "scissors") {
+    return playerWinRound;
+  } else if (userPick === "scissors" && computerSelection === "paper") {
+    return playerWinRound;
+  } else if (userPick === "paper" && computerSelection === "rock") {
+    return playerWinRound;
+  } else if (userPick === computerSelection) {
+    return draw;
   } else {
-    alert(`You lost that one.`);
+    return computerWinRound;
   }
 };
-playRound(user, cpu);
+
+const game = function () {
+  for (let i = 0; i < 5; i++) {
+    let userPick = prompt(
+      "Choose your weapon: Rock, Paper, or Scissors."
+    ).toLowerCase();
+    let computerSelection = cpu;
+    let roundResult = playRound(userPick, computerSelection);
+    console.log(roundResult);
+  }
+
+  if (userScore === 3) {
+    alert("YOU WIN!");
+  } else {
+    alert("YOU LOSE");
+  }
+};
+game();
