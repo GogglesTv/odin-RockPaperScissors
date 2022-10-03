@@ -1,8 +1,9 @@
 "use strict";
 
-const choices = ["Rock", "Paper", "Scissors"];
-const userName = prompt("What's your name User?");
+const choices = ["rock", "paper", "scissors"];
+//const userName = prompt("What's your name User?");
 const userPick = prompt("Choose your weapon: Rock, Paper, or Scissors.");
+const userWin = `you won!`;
 
 const getComputerChoice = function (arr) {
   const cpuChoice = Math.floor(Math.random() * arr.length);
@@ -11,10 +12,27 @@ const getComputerChoice = function (arr) {
   console.log(`CPU: ${choice}`);
   //return choice;
 };
-getComputerChoice(choices);
+const cpu = getComputerChoice(choices);
 
 const getPlayerChoice = function () {
-  console.log(`${userName}: ${userPick}`);
+  console.log(`User: ${userPick}`);
+  // console.log(`${userName}: ${userPick}`);
   //return userPick;
 };
-getPlayerChoice();
+const user = getPlayerChoice();
+
+const RockPaperScissors = function (playerSelection, computerSelection) {
+  if (playerSelection === "rock" && computerSelection === "scissors") {
+    console.log(userWin);
+  } else if (playerSelection === "scissors" && computerSelection === "paper") {
+    console.log(userWin);
+  } else if (playerSelection === "paper" && computerSelection === "rock") {
+    console.log(userWin);
+  } else if (playerSelection === computerSelection) {
+    console.log("It's a tie! Go again!");
+    console.log(user, cpu);
+  } else {
+    console.log(`You lost that one.`);
+  }
+};
+RockPaperScissors(user, cpu);
