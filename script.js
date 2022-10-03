@@ -1,23 +1,26 @@
 "use strict";
 
+// CPU choices and initialized score variables
 const choices = ["rock", "paper", "scissors"];
 let userScore = 0;
 let cpuScore = 0;
 let draws = 0;
 
+// CPU selects from "choices" array at random
 const getComputerChoice = function (arr) {
   let cpuPicks = Math.floor(Math.random() * arr.length);
   let cpuChoice = arr[cpuPicks];
   return cpuChoice;
 };
 
-//Specifies round win/game win messages
+// Specifies round win/game win messages
 let playerWinRound = "User wins this round!";
 let computerWinRound = "Computer wins this round!";
 let draw = "Draw!";
 let playerWin = "User wins the game! Congratulations!";
 let computerWin = "Computer wins the game! You gotta be better than that!";
 
+// Returns the result of each round
 const playRound = function (userPick, computerSelection) {
   if (userPick === "rock" && computerSelection === "scissors") {
     return playerWinRound;
@@ -40,6 +43,7 @@ const game = function () {
     let cpu = getComputerChoice(choices);
     let roundResult = playRound(userPick, cpu);
 
+    // Logs user/cpu pick and result of each round
     console.log(`User: ${userPick}`, `CPU: ${cpu}`);
     console.log(`Round ${i}: ${roundResult}`);
 
@@ -48,10 +52,14 @@ const game = function () {
       userScore++;
     } else if (roundResult === computerWinRound) {
       cpuScore++;
+    } else {
+      draws++;
     }
 
+    // Scoreboard
     console.log(`User score: ${userScore}`);
     console.log(`CPU score: ${cpuScore}`);
+    console.log(`Draws: ${draws}`);
 
     // Game winning message
     if (userScore === 3) {
