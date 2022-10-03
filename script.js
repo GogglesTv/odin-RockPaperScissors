@@ -1,7 +1,9 @@
 "use strict";
 
 const choices = ["rock", "paper", "scissors"];
-const userPick = prompt("Choose your weapon: Rock, Paper, or Scissors.");
+const userPick = prompt(
+  "Choose your weapon: Rock, Paper, or Scissors."
+).toLowerCase();
 
 const getComputerChoice = function (arr) {
   const cpuChoice = Math.floor(Math.random() * arr.length);
@@ -20,7 +22,7 @@ const getPlayerChoice = function () {
 };
 const user = getPlayerChoice();
 
-const rockPaperScissors = function (playerSelection, computerSelection) {
+const playRound = function (playerSelection, computerSelection) {
   const userWin = `you won!`;
 
   if (playerSelection === "rock" && computerSelection === "scissors") {
@@ -35,4 +37,4 @@ const rockPaperScissors = function (playerSelection, computerSelection) {
     alert(`You lost that one.`);
   }
 };
-rockPaperScissors(user, cpu);
+playRound(user, cpu);
