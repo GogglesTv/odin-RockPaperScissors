@@ -4,8 +4,74 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="script.js"></script>
+    <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Raleway:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Raleway:wght@800&display=swap");
+    </style>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>Rock Paper Scissors</h1>
+    </header>
+
+    <section class="score-board">
+      <div class="badge" id="cpuDisplay">CPU</div>
+      <div class="badge" id="playerDisplay">USER</div>
+      <span id="user-score">0</span> : <span id="cpu-score">0</span>
+    </section>
+
+    <div class="resetBtn">
+      <button class="btn" id="reset">RESET</button>
+    </div>
+
+    <div class="result">
+      <p id="round__result"></p>
+      <p id="result__text">CHOOSE YOUR WEAPON!</p>
+      <img src="./images/let's-go-gif.webp" class="hide" id="winGIF" />
+      <img src="./images/that's-tuff-gif.webp" class="hide" id="lossGIF" />
+    </div>
+
+    <div class="choices">
+      <div class="choice" id="rock">
+        <img
+          src="https://tejeshwer25.github.io/Rock_Paper_scissors/images/rock.png"
+        />
+      </div>
+
+      <div class="choice" id="paper">
+        <img
+          src="https://tejeshwer25.github.io/Rock_Paper_scissors/images/paper.png"
+        />
+      </div>
+      <div class="choice" id="scissors">
+        <img
+          src="https://tejeshwer25.github.io/Rock_Paper_scissors/images/scissor.png"
+        />
+      </div>
+    </div>
+    <!-- <label for="playto" class="">Playing to</label>
+    <div class="select">
+      <select name="" id="playto">
+        <option value="3">3</option>
+        <option value="5">5</option>
+        <option value="7">7</option>
+        <option value="9">9</option>
+        <option value="11">11</option>
+        <option value="13">13</option>
+      </select>
+    </div> -->
+
+    <!-- <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+    <button id="reset">Reset</button> -->
+    <script src="script.js"></script>
+  </body>
 </html>
